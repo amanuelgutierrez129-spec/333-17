@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQC PRO | Financial Information Consulting Services</title>
+    <style>
+        :root {
+            --dark-night-gray: #1a1c23;
+            --pure-black: #0c0e14;
+            --silver-white: #e8ebf2;
+            --aurora-purple: #5b3a99;
+            --light-gray-highlight: #b0b8c4;
+            --cyber-cyan: #2dd4bf;
+            --gilded-gold: #d4b866;
+            --transition-all: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-night-gray);
+            color: var(--silver-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--pure-black);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.5);
+        }
+
+        .nav-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gilded-gold);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--cyber-cyan);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .main-nav a {
+            color: var(--silver-white);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition-all);
+            position: relative;
+        }
+
+        .main-nav a:hover {
+            color: var(--gilded-gold);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cyber-cyan);
+            transition: var(--transition-all);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 28px;
+            color: var(--silver-white);
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: var(--pure-black);
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            color: var(--silver-white);
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a2d37;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(12,14,20,0.85), rgba(12,14,20,0.85)), url(https://amanuelgutierrez129-spec.github.io/333-17/69.jpg) center/cover no-repeat;
+            padding: 60px 0;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 25px;
+            color: var(--silver-white);
+        }
+
+        .hero h1 span {
+            color: var(--gilded-gold);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--light-gray-highlight);
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 36px;
+            background: var(--aurora-purple);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition-all);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--cyber-cyan);
+            transform: translateY(-3px);
+        }
+
+        /* Common Section Style */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: var(--silver-white);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--light-gray-highlight);
+            font-size: 17px;
+        }
+
+        /* About Us Section */
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .about-text h3 {
+            font-size: 26px;
+            color: var(--cyber-cyan);
+            margin-bottom: 20px;
+        }
+
+        .about-text h4 {
+            font-size: 20px;
+            color: var(--gilded-gold);
+            margin: 25px 0 15px;
+        }
+
+        .about-text p {
+            color: var(--light-gray-highlight);
+            margin-bottom: 20px;
+        }
+
+        .about-text ul {
+            color: var(--light-gray-highlight);
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .about-text ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--pure-black);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--dark-night-gray);
+            padding: 35px 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--gilded-gold);
+            transition: var(--transition-all);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(91,58,153,0.3);
+        }
+
+        .service-card h4 {
+            font-size: 22px;
+            color: var(--silver-white);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--light-gray-highlight);
+            margin-bottom: 15px;
+        }
+
+        .service-card .service-subdesc {
+            font-size: 14px;
+            color: var(--cyber-cyan);
+            line-height: 1.5;
+        }
+
+        /* Data Module Style */
+        .data-module {
+            background: var(--aurora-purple);
+            padding: 50px 0;
+            margin: 60px 0;
+            border-radius: 16px;
+        }
+
+        .data-row {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .data-item h5 {
+            font-size: 40px;
+            color: var(--light-gray-highlight);
+            margin-bottom: 10px;
+        }
+
+        .data-item p {
+            color: var(--cyber-cyan);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .data-item .data-subdesc {
+            font-size: 14px;
+            color: var(--silver-white);
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 26px;
+            color: var(--gilded-gold);
+            margin-bottom: 30px;
+        }
+
+        .contact-info-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-info-item h4 {
+            color: var(--cyber-cyan);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info-item p {
+            color: var(--light-gray-highlight);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info-item .contact-subdesc {
+            font-size: 14px;
+            color: var(--gilded-gold);
+            opacity: 0.8;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #23262f;
+            border: 1px solid #333742;
+            border-radius: 8px;
+            color: var(--silver-white);
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: none;
+        }
+
+        .success-tip {
+            color: #22c55e;
+            display: none;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--pure-black);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 26px;
+            color: var(--gilded-gold);
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            color: var(--light-gray-highlight);
+            font-size: 15px;
+        }
+
+        /* Responsive Mobile */
+        @media(max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .about-wrap, .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+            .data-row {
+                grid-template-columns: repeat(2,1fr);
+            }
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+
+        @media(max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .section-title h2 {
+                font-size: 28px;
+            }
+            .nav-wrap {
+                height: 70px;
+            }
+            .hero {
+                margin-top: 70px;
+            }
+        }
+
+        /* Scroll Smooth */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrap">
+            <a href="#home" class="logo">SQC <span>PRO</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#data">Data Strength</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn" id="menuBtn">☰</div>
+        </div>
+        <!-- Mobile Nav -->
+        <div class="mobile-nav container" id="mobileNav">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#data">Data Strength</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Home Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional <span>Financial Information</span> Consulting Solutions</h1>
+                <p>SQC PRO is committed to providing global clients with accurate, efficient and reliable financial information consulting services, helping you grasp market trends and make wise investment decisions.</p>
+                <a href="#contact" class="btn-primary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About SQC PRO</h2>
+                <p>Established professional financial consulting institution rooted in Northern Ireland</p>
+            </div>
+            <div class="about-wrap">
+                <div class="about-img">
+                    <img src="https://amanuelgutierrez129-spec.github.io/333-17/70.jpg" alt="Company Image">
+                </div>
+                <div class="about-text">
+                    <h3>Our Corporate Strength</h3>
+                    <p>SQC PRO is a formal financial information consulting service company located in Nottingham, Northern Ireland. We have a senior professional team with rich financial industry experience, focusing on global financial market analysis, industry information sorting, investment risk assessment and customized financial consulting planning.</p>
+                    <p>We adhere to the service concept of integrity, professionalism and efficiency, strictly abide by industry norms and market rules, provide one-stop high-end financial information consulting services for individual investors, enterprise institutions and cross-border financial practitioners, and win wide recognition and trust from customers all over the world.</p>
+                    <p>With complete information collection channels and mature data analysis system, we keep track of real-time financial dynamics, sort out valuable core information for customers, and effectively avoid market risks and optimize financial layout.</p>
+                    
+                    <h4>Our Core Values</h4>
+                    <ul>
+                        <li>Integrity: Adhere to honest operation and transparent service</li>
+                        <li>Professionalism: Rely on professional capabilities to provide accurate analysis</li>
+                        <li>Innovation: Continuously optimize service models and analysis methods</li>
+                        <li>Customer First: Take customer needs as the core to customize solutions</li>
+                    </ul>
+
+                    <h4>Development History</h4>
+                    <p>Founded in 2012, SQC PRO started with regional financial consulting services in Northern Ireland. After 12 years of development, we have expanded our business to Europe, Asia, North America and other regions, and established long-term cooperative relationships with more than 8,000 clients worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Services</h2>
+                <p>Diversified high-quality financial consulting services to meet all your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Global Financial Market Analysis</h4>
+                    <p>Provide real-time analysis of stock market, foreign exchange, futures and other global financial markets, sort out market hotspots and trend prediction reports.</p>
+                    <div class="service-subdesc">
+                        • Cover 50+ major global financial markets<br>
+                        • Update market analysis reports 24/7<br>
+                        • Combine technical and fundamental analysis
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h4>Investment Risk Consulting</h4>
+                    <p>Professional investment risk assessment, risk early warning reminder and reasonable risk control scheme formulation.</p>
+                    <div class="service-subdesc">
+                        • Customized risk assessment models<br>
+                        • Real-time risk early warning system<br>
+                        • Tailored risk control strategies
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h4>Industry Financial Information Sorting</h4>
+                    <p>Classified collation of financial data and policy information of various industries, output standardized readable information documents.</p>
+                    <div class="service-subdesc">
+                        • Cover 30+ key industries<br>
+                        • Policy interpretation and impact analysis<br>
+                        • Data visualization report output
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h4>Cross-border Financial Consulting</h4>
+                    <p>Provide professional consulting guidance for cross-border capital flow, overseas financial layout and international financial business layout.</p>
+                    <div class="service-subdesc">
+                        • Cross-border tax planning<br>
+                        • Overseas asset allocation advice<br>
+                        • International regulatory policy consulting
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h4>Enterprise Financial Planning</h4>
+                    <p>Customized financial management planning, capital operation suggestion and financial structure optimization scheme for enterprises.</p>
+                    <div class="service-subdesc">
+                        • Enterprise capital chain optimization<br>
+                        • Financing and investment planning<br>
+                        • Financial cost control scheme
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h4>Personal Wealth Consulting</h4>
+                    <p>Private customized wealth allocation suggestions, asset preservation and appreciation consulting and personal financial management guidance.</p>
+                    <div class="service-subdesc">
+                        • One-on-one private consultant<br>
+                        • Diversified asset allocation plan<br>
+                        • Long-term wealth growth strategy
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Strength Module -->
+    <section class="container" id="data">
+        <div class="data-module">
+            <div class="section-title">
+                <h2 style="color:#fff;">Our Data Strength</h2>
+                <p style="color:#e0e0e0;">Powerful data support to ensure professional service quality</p>
+            </div>
+            <div class="data-row">
+                <div class="data-item">
+                    <h5>12+</h5>
+                    <p>Years Industry Experience</p>
+                    <div class="data-subdesc">
+                        Accumulated rich experience in financial market changes and risk response
+                    </div>
+                </div>
+                <div class="data-item">
+                    <h5>8000+</h5>
+                    <p>Cooperative Clients</p>
+                    <div class="data-subdesc">
+                        Include individual investors, small and medium-sized enterprises, and large multinational corporations
+                    </div>
+                </div>
+                <div class="data-item">
+                    <h5>50+</h5>
+                    <p>Senior Analysts</p>
+                    <div class="data-subdesc">
+                        Average 8+ years of financial industry experience, with international professional certifications
+                    </div>
+                </div>
+                <div class="data-item">
+                    <h5>99%</h5>
+                    <p>Customer Satisfaction</p>
+                    <div class="data-subdesc">
+                        Based on annual customer satisfaction survey, continuous optimization of service quality
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Feel free to contact us for business cooperation and service consultation</p>
+            </div>
+            <div class="contact-wrap">
+                <div class="contact-info">
+                    <h3>Company Contact Information</h3>
+                    <div class="contact-info-item">
+                        <h4>Company Address</h4>
+                        <p>Nordirland Nottingham 53 Friar Ln</p>
+                        <div class="contact-subdesc">
+                            Close to Nottingham City Center, convenient transportation, on-site consultation is welcome by appointment
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <h4>Contact Phone</h4>
+                        <p>+44 7769357434</p>
+                        <div class="contact-subdesc">
+                            Service time: Monday to Friday 09:00-18:00, respond to calls within 5 minutes during working hours
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <h4>Business Hours</h4>
+                        <p>Monday to Friday: 09:00 - 18:00<br>Weekend: Closed on holidays</p>
+                        <div class="contact-subdesc">
+                            Emergency consulting service is available on weekends (need to make an appointment in advance)
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <h4>Service Scope</h4>
+                        <p>Global financial information consulting, market research, investment consulting and related financial business services</p>
+                        <div class="contact-subdesc">
+                            Provide multilingual service support (English, Chinese, Spanish, French)
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Full Name" required>
+                        <input type="email" placeholder="Your Email Address" required>
+                        <input type="text" placeholder="Contact Number">
+                        <textarea placeholder="Please enter your consultation content and demand details"></textarea>
+                        <button type="submit" class="btn-primary">Submit Message</button>
+                        <div class="success-tip" id="successTip">Your message has been submitted successfully! We will reply you as soon as possible.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">SQC PRO Financial Consulting</div>
+            <p>© 2026 SQC PRO All Rights Reserved | Professional Financial Information Consulting Service Provider</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu after click link
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Form submit always show success
+        const contactForm = document.getElementById('contactForm');
+        const successTip = document.getElementById('successTip');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            successTip.style.display = 'block';
+            // Reset form
+            setTimeout(() => {
+                contactForm.reset();
+                // Hide success tip after 3 seconds
+                setTimeout(() => {
+                    successTip.style.display = 'none';
+                }, 3000);
+            }, 500);
+        });
+    </script>
+</body>
+</html>
